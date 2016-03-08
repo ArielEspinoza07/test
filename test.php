@@ -29,4 +29,9 @@ require_once( Test__PLUGIN_DIR . 'class.api_test.php' );
 
 add_action('init',array('Api','init'));
 
+function hello(){
+  echo "lorem ipsum onec";
+}
+
+add_shortcode( 'hello', 'hello' );
 ?>

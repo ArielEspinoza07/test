@@ -39,7 +39,14 @@ class Api
     $json = json_decode($json,true);
 
     //var_dump($json);
-    echo '<div class="row">
+
+    //show_table($json);
+
+  }
+
+  public static function show_table($json){
+    ?>
+    <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <table style="background-color:white" class="table table-bordered table hover">
           <thead>
@@ -50,20 +57,21 @@ class Api
               <th>email</th>
             </tr>
           </thead>
-          <tbody>';
-          foreach ($json as $item) {
-            # code...
-            echo '<tr><td>'.$item['id'].'</td>';
-            echo '<td>'.$item['name'].'</td>';
-            echo '<td>'.$item['username'].'</td>';
-            echo '<td>'.$item['email'].'</td></tr>';
-          }
-          echo '</tbody>
+          <tbody>
+            <?php
+              foreach ($json as $item) {
+                # code...
+                echo '<tr><td>'.$item['id'].'</td>';
+                echo '<td>'.$item['name'].'</td>';
+                echo '<td>'.$item['username'].'</td>';
+                echo '<td>'.$item['email'].'</td></tr>';
+              }
+            ?>
+          </tbody>
           </table>
       </div>
-    </div>';
-
-
+    </div>
+    <?php
   }
 
 }
