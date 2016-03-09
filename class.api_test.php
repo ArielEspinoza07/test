@@ -18,11 +18,11 @@ class Api
     }
   }
 
-  public static function init_hooks($value='')
+  public static function init_hooks()
   {
     # code...
     self::$initiated = true;
-    add_action('wp_footer',array('Api','getUsers'));
+    //add_action('wp_footer',array('Api','getUsers'));
   }
 
   public static function getUsers(){
@@ -40,41 +40,8 @@ class Api
 
     //var_dump($json);
 
-    //show_table($json);
+    return $json;
 
-  }
-
-  public static function show_table($json){
-    ?>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <table style="background-color:white" class="table table-bordered table hover">
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>name</th>
-              <th>username</th>
-              <th>email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-              foreach ($json as $item) {
-                # code...
-                echo '<tr><td>'.$item['id'].'</td>';
-                echo '<td>'.$item['name'].'</td>';
-                echo '<td>'.$item['username'].'</td>';
-                echo '<td>'.$item['email'].'</td></tr>';
-              }
-            ?>
-          </tbody>
-          </table>
-      </div>
-    </div>
-    <?php
   }
 
 }
-
-
-?>
