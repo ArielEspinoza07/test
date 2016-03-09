@@ -23,9 +23,10 @@ class Shortcode
 
   public function test_wp_shortcode()
   {
+    $content = '';
     $json = Api::getUsers();
-  	$table =  '<div class="col-md-12">
-        <table style="background-color:white" class="table table-bordered table hover">
+  	$table =  '<div class="table-responsive">
+    <table style="background-color:white" class="table table-condensed table-bordered table-hover  ">
           <thead>
             <tr>
               <th>id</th>
@@ -37,15 +38,16 @@ class Shortcode
           <tbody>';
               foreach ($json as $item) {
                 # code...
-                $content = '<tr><td>'.$item['id'].'</td>' .
+                $content .= '<tr><td>'.$item['id'].'</td>' .
                  '<td>'.$item['name'].'</td>' .
                  '<td>'.$item['username'].'</td>' .
                  '<td>'.$item['email'].'</td></tr>';
+
               }
 
           $footer = '</tbody>
           </table>
-      </div>';
+          </div>';
 
       echo $table . $content . $footer;
   }

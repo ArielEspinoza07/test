@@ -26,7 +26,7 @@ define( 'Test_DELETE_LIMIT', 100000 );
 //add_action('wp_head','hello');
 
 require_once( Test__PLUGIN_DIR . 'class.api_test.php' );
-require_once( Test__PLUGIN_DIR . 'cass.shortcode_test.php');
+require_once( Test__PLUGIN_DIR . 'class.shortcode_test.php');
 
 
 add_shortcode('job_listing','test_plugin_job_listing');
